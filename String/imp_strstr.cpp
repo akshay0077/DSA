@@ -3,14 +3,15 @@ using namespace std;
 
 int imp_strstr(string s, string key)
 {
-    if (s.find_first_of(key) == 0)
+    for(int i = 0; i <= s.size() - key.size(); i++)
     {
-        return -1;
+        string str = s.substr(i, key.size());
+        if(str == key)
+        {
+            return i;
+        }
     }
-    else
-    {
-        return s.find_first_of(key);
-    }
+    return -1;
 }
 
 int main()
