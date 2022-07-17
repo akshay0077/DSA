@@ -23,7 +23,7 @@ int getPivot(int arr[], int size)
 }
 int main()
 {
-    int arr[5] = {7,9,1,2,3};
+    int arr[5] = {15,18,2,3,6};
     int size = 5;
 
     cout << " Pivot Element is : " << getPivot(arr, size) << endl;
