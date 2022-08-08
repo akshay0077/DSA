@@ -85,7 +85,7 @@ int peakEle(vector<int>& ans)
 }
 int main()
 {
-    vector<int> ans = {1};
+    vector<int> ans = {7,9,12,15,17};
     cout << peakEle(ans) << endl;
 
 }
