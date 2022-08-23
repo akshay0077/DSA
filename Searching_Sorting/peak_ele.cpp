@@ -1,91 +1,122 @@
 #include <bits/stdc++.h>
 using namespace std;
-int peak_ele(vector<int>& ans)
+
+int peakEle(int arr[],int n)
 {
-    int s = 0;
-    int e = ans.size() - 1; 
+    int start=0;
+    int end=n-1;
 
-    while(s <= e)
-    {
-        int mid = s + (e - s)/2;
-        if(mid - 1 >= s && mid + 1 <= e)
-        {
-            if(ans[mid] > ans[mid - 1] && ans[mid] > ans[mid + 1])
-            {
-                return mid;
-            }else if(ans[mid] < ans[mid - 1])
-            {
-                e = mid - 1;
-            }else{
-                s = mid + 1;
-            }
+    while(start<end){
+      int mid=start+(end-start)/2;
 
-        }else if(mid == s)
-        {
-            if(ans[s] > ans[s + 1])
-            {
-                return s;
-            }else{
-                return s + 1;
-            }
-        }else if(mid == e)
-        {
-            if(ans[e] > ans[e - 1])
-            {
-                return e;
-            }else{
-                return e - 1;
-            }
-        }
+      if(arr[mid]<arr[mid+1])
+        start=mid+1;
+      else
+        end=mid;
     }
-    return -1;
-}
+    //if you need Peak element
+        // return arr[start];
 
-
-int peakEle(vector<int>& ans)
-{
-    int s = 0;
-    int e = ans.size() - 1;
-
-    while(s <= e)
-    {
-        int mid = s + (e - s)/2;
-
-        if(mid - 1 >= s && mid + 1 <= e)
-        {
-            if(ans[mid - 1] < ans[mid] && ans[mid + 1] < ans[mid])
-            {
-                return mid;
-            }else if (ans[mid] < ans[mid - 1])
-            {
-                e = mid - 1;
-            }else{
-                s = mid + 1;
-            }
-        }else if(mid == s)
-        {
-            if(ans[s] > ans[s + 1])
-            {
-                return s;
-            }else{
-                return s + 1;
-            }
-        }else if(mid == e)
-        {
-            if(ans[e] > ans[e - 1])
-            {
-                return e;
-            }else{
-                return e - 1;
-            }
-        }
-    }
-    return -1;
-
+    //if you need Peak element index
+        return start;
 }
 int main()
 {
-    vector<int> ans = {7,9,12,15,17};
-    cout << peakEle(ans) << endl;
+    int arr[] = {5,10,20,15};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    cout<<peakEle(arr,n);
 
 }
+
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// int peak_ele(vector<int>& ans)
+// {
+//     int s = 0;
+//     int e = ans.size() - 1; 
+
+//     while(s <= e)
+//     {
+//         int mid = s + (e - s)/2;
+//         if(mid - 1 >= s && mid + 1 <= e)
+//         {
+//             if(ans[mid] > ans[mid - 1] && ans[mid] > ans[mid + 1])
+//             {
+//                 return mid;
+//             }else if(ans[mid] < ans[mid - 1])
+//             {
+//                 e = mid - 1;
+//             }else{
+//                 s = mid + 1;
+//             }
+
+//         }else if(mid == s)
+//         {
+//             if(ans[s] > ans[s + 1])
+//             {
+//                 return s;
+//             }else{
+//                 return s + 1;
+//             }
+//         }else if(mid == e)
+//         {
+//             if(ans[e] > ans[e - 1])
+//             {
+//                 return e;
+//             }else{
+//                 return e - 1;
+//             }
+//         }
+//     }
+//     return -1;
+// }
+
+
+// int peakEle(vector<int>& ans)
+// {
+//     int s = 0;
+//     int e = ans.size() - 1;
+
+//     while(s <= e)
+//     {
+//         int mid = s + (e - s)/2;
+
+//         if(mid - 1 >= s && mid + 1 <= e)
+//         {
+//             if(ans[mid - 1] < ans[mid] && ans[mid + 1] < ans[mid])
+//             {
+//                 return mid;
+//             }else if (ans[mid] < ans[mid - 1])
+//             {
+//                 e = mid - 1;
+//             }else{
+//                 s = mid + 1;
+//             }
+//         }else if(mid == s)
+//         {
+//             if(ans[s] > ans[s + 1])
+//             {
+//                 return s;
+//             }else{
+//                 return s + 1;
+//             }
+//         }else if(mid == e)
+//         {
+//             if(ans[e] > ans[e - 1])
+//             {
+//                 return e;
+//             }else{
+//                 return e - 1;
+//             }
+//         }
+//     }
+//     return -1;
+
+// }
+// int main()
+// {
+//     vector<int> ans = {7,9,12,15,17};
+//     cout << peakEle(ans) << endl;
+
+// }
